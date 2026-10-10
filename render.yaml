@@ -1,0 +1,39 @@
+# Render Blueprint: one free web service. See DEPLOYMENT.md (kept local).
+services:
+  - type: web
+    name: walkworth
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      # Secrets: Render asks for these when the Blueprint is applied.
+      - key: LLM_API_KEY
+        sync: false
+      - key: ELEVENLABS_API_KEY
+        sync: false
+      # Settings (same meaning as in .env.example).
+      - key: LLM_BASE_URL
+        value: https://generativelanguage.googleapis.com/v1beta/openai
+      - key: LLM_MODEL
+        value: gemma-4-26b-a4b-it
+      - key: LLM_TIMEOUT
+        value: "240"
+      - key: LLM_MAX_RPM
+        value: "10"
+      - key: LLM_MAX_WAIT
+        value: "45"
+      - key: LLM_THINKING_LEVEL
+        value: minimal
+      - key: LLM_MAX_PER_DAY
+        value: "300"
+      - key: SUBMIT_LIMIT
+        value: "8"
+      - key: ELEVENLABS_STT_MODEL
+        value: scribe_v1
+      - key: WALKWORTH_EMBEDDED_WORKER
+        value: "1"
+      # Optional: to share the link but keep strangers from spending your API
+      # quota, add ACCESS_CODE in the dashboard (Environment). Starting a walk
+      # or an import then asks for it. Reading journals never does.

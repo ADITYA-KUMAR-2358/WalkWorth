@@ -1,0 +1,62 @@
+{
+  "id": "sinhagad",
+  "name": "Sinhagad",
+  "name_mr": "सिंहगड",
+  "landmarks": [
+    {
+      "id": "atkarwadi",
+      "name": "Atkarwadi",
+      "name_mr": null,
+      "lat": null,
+      "lon": null,
+      "one_line": "TODO",
+      "osm_id": null
+    },
+    {
+      "id": "pune-darwaja",
+      "name": "Pune Darwaja",
+      "name_mr": "पुणे दरवाजा",
+      "lat": 18.3655651,
+      "lon": 73.7592159,
+      "one_line": "TODO",
+      "osm_id": "node/3721058067"
+    },
+    {
+      "id": "kalyan-darwaja",
+      "name": "Kalyan Darwaja",
+      "name_mr": "कल्याण दरवाजा",
+      "lat": 18.3625613,
+      "lon": 73.7538176,
+      "one_line": "TODO",
+      "osm_id": "node/3721058066"
+    },
+    {
+      "id": "tanaji-kada",
+      "name": "Tanaji Kada",
+      "name_mr": null,
+      "lat": null,
+      "lon": null,
+      "one_line": "TODO",
+      "osm_id": null
+    },
+    {
+      "id": "sinhagad-fort",
+      "name": "Sinhagad Fort",
+      "name_mr": "सिंहगड किल्ला",
+      "lat": 18.3651456,
+      "lon": 73.7552242,
+      "one_line": "TODO",
+      "osm_id": "node/2165009895"
+    }
+  ],
+  "glossary": [
+    "Sinhagad",
+    "Kondhana",
+    "Tanaji Kada",
+    "Kalyan Darwaja",
+    "Pune Darwaja",
+    "Atkarwadi",
+    "buruj",
+    "darwaja"
+  ]
+}

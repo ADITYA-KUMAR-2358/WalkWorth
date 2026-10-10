@@ -1,0 +1,140 @@
+{
+  "_comment": "SAMPLE DATA. Voice notes are a computer voice reading invented lines; photos are credited Wikimedia Commons images, not the user's. Replaced by a real trek.",
+  "trek": {
+    "id": "sinhagad-sample",
+    "title": "Sinhagad",
+    "title_mr": "सिंहगड",
+    "fort_pack_id": "sinhagad",
+    "screen_seconds": null
+  },
+  "notes": [
+    {
+      "id": "note-01",
+      "t": "2026-10-10T00:42:00Z",
+      "lat": 18.375524,
+      "lon": 73.767209,
+      "duration_s": 5.71,
+      "audio": "audio/note-01.ogg",
+      "script": "Started from Atkarwadi, still dark, chai stall just opening."
+    },
+    {
+      "id": "note-02",
+      "t": "2026-10-10T01:01:00Z",
+      "lat": 18.372316,
+      "lon": 73.76366,
+      "duration_s": 6.09,
+      "audio": "audio/note-02.ogg",
+      "script": "Steep bit now, loose stones, had to use my hands on a couple of rocks."
+    },
+    {
+      "id": "note-03",
+      "t": "2026-10-10T01:18:00Z",
+      "lat": 18.368155,
+      "lon": 73.761128,
+      "duration_s": 5.69,
+      "audio": "audio/note-03.ogg",
+      "script": "Sun's up behind us. The whole valley went orange for about a minute."
+    },
+    {
+      "id": "note-04",
+      "t": "2026-10-10T01:35:00Z",
+      "lat": 18.365576,
+      "lon": 73.759216,
+      "duration_s": 5.69,
+      "audio": "audio/note-04.ogg",
+      "script": "Langurs on the wall near the gate, three of them, totally unbothered."
+    },
+    {
+      "id": "note-05",
+      "t": "2026-10-10T01:52:00Z",
+      "lat": null,
+      "lon": null,
+      "duration_s": 5.95,
+      "audio": "audio/note-05.ogg",
+      "script": "Someone selling taak in clay pots just inside the gate. Ice cold."
+    },
+    {
+      "id": "note-06",
+      "t": "2026-10-10T02:18:00Z",
+      "lat": 18.362629,
+      "lon": 73.753865,
+      "duration_s": 4.72,
+      "audio": "audio/note-06.ogg",
+      "script": "Fog rolling in from the valley, can't see the road anymore."
+    },
+    {
+      "id": "note-07",
+      "t": "2026-10-10T02:40:00Z",
+      "lat": 18.365215,
+      "lon": 73.755929,
+      "duration_s": 3.43,
+      "audio": "audio/note-07.ogg",
+      "script": "Kanda bhaji at the top, earned it."
+    },
+    {
+      "id": "note-08",
+      "t": "2026-10-10T03:51:00Z",
+      "lat": 18.375938,
+      "lon": 73.76795,
+      "duration_s": 5.42,
+      "audio": "audio/note-08.ogg",
+      "script": "Back at the bottom. Knees are done, fog on our shoes."
+    }
+  ],
+  "photos": [
+    {
+      "id": "photo-01",
+      "t": "2026-10-10T01:05:00Z",
+      "lat": 18.371263,
+      "lon": 73.763191,
+      "path": "photos/ridge-trail.jpg",
+      "label": "the trail along the ridge",
+      "credit": "Suraj Digrase, CC0, via Wikimedia Commons"
+    },
+    {
+      "id": "photo-02",
+      "t": "2026-10-10T01:19:00Z",
+      "lat": 18.367855,
+      "lon": 73.76108,
+      "path": "photos/sunrise.jpg",
+      "label": "sunrise over the ridges",
+      "credit": "Tanaya Badgandi, CC BY-SA 4.0, via Wikimedia Commons"
+    },
+    {
+      "id": "photo-03",
+      "t": "2026-10-10T01:36:00Z",
+      "lat": 18.365528,
+      "lon": 73.759035,
+      "path": "photos/gate.jpg",
+      "label": "a gate in the fort wall",
+      "credit": "Suraj Digrase, CC0, via Wikimedia Commons"
+    },
+    {
+      "id": "photo-04",
+      "t": "2026-10-10T02:21:00Z",
+      "lat": 18.363069,
+      "lon": 73.754108,
+      "path": "photos/fog-edge.jpg",
+      "label": "fog over the cliff edge",
+      "credit": "Suraj Digrase, CC0, via Wikimedia Commons"
+    },
+    {
+      "id": "photo-05",
+      "t": "2026-10-10T02:35:00Z",
+      "lat": 18.365021,
+      "lon": 73.755154,
+      "path": "photos/valley.jpg",
+      "label": "the valley from the top",
+      "credit": "Suraj Digrase, CC0, via Wikimedia Commons"
+    },
+    {
+      "id": "photo-06",
+      "t": "2026-10-10T02:44:00Z",
+      "lat": 18.365305,
+      "lon": 73.756557,
+      "path": "photos/cannon.jpg",
+      "label": "a cannon on the wall",
+      "credit": "Suraj Digrase, CC0, via Wikimedia Commons"
+    }
+  ]
+}

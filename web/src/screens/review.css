@@ -1,0 +1,146 @@
+.rv-chapter-lines {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0 1.25rem;
+}
+
+@media (min-width: 48rem) {
+  .rv-chapter-lines {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  }
+}
+
+.field label .mono {
+  font-size: 0.75rem;
+}
+
+.rv-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rv-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem 2rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--rule);
+  transition: background-color var(--dur) var(--ease);
+}
+
+.rv-entry.is-over {
+  background: color-mix(in srgb, var(--laterite) 8%, transparent);
+}
+
+@media (min-width: 48rem) {
+  .rv-entry {
+    grid-template-columns: 16rem minmax(0, 1fr);
+  }
+}
+
+.rv-side {
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+}
+
+.rv-side audio {
+  width: 100%;
+  height: 2.5rem;
+}
+
+/* The walker's words: the quote serif, as in the journal. */
+.rv-transcript {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: var(--step-2);
+  line-height: 1.3;
+}
+
+.rv-line-label {
+  font-size: var(--step--1);
+  color: var(--pencil);
+}
+
+.rv-line-text {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.rv-transcript u {
+  text-decoration-color: var(--laterite);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+
+.rv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.25rem;
+  margin-top: 0.75rem;
+}
+
+.rv-confirm {
+  font-size: var(--step--1);
+}
+
+.rv-photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.rv-photo {
+  margin: 0;
+  padding: 0.5rem;
+  background: var(--print);
+  color: #1E1C19;
+  cursor: grab;
+}
+
+.rv-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.rv-photo figcaption {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.rv-photo .input,
+.rv-photo .select {
+  background: #FFFFFF;
+  color: #1E1C19;
+  border-color: #8C877E;
+  font-size: var(--step--1);
+  padding: 0.35rem 0.5rem;
+}
+
+.rv-move {
+  display: grid;
+  gap: 0.2rem;
+  color: #5E5A53;
+}
+
+.rv-bar {
+  position: sticky;
+  bottom: 0;
+  margin-top: 2.5rem;
+  padding: 1rem 0 max(1.25rem, env(safe-area-inset-bottom));
+  background: var(--paper);
+  box-shadow: 0 -16px 24px -12px var(--paper);
+  border-top: 1px solid var(--rule-strong);
+  display: grid;
+  gap: 0.75rem;
+}
+
+.rv-bad {
+  color: var(--laterite);
+}

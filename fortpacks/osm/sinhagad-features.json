@@ -1,0 +1,129 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-06T07:41:51Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 2165009895,
+  "lat": 18.3651456,
+  "lon": 73.7552242,
+  "tags": {
+    "castle_type": "fortress",
+    "historic": "castle",
+    "name": "Sinhagad Fort",
+    "tourism": "attraction"
+  }
+},
+{
+  "type": "node",
+  "id": 3721058066,
+  "lat": 18.3625613,
+  "lon": 73.7538176,
+  "tags": {
+    "historic": "yes",
+    "name": "Kalyan Gate",
+    "name:hi": "कल्याण दरवाजा",
+    "name:mr": "कल्याण दरवाजा",
+    "tourism": "viewpoint"
+  }
+},
+{
+  "type": "node",
+  "id": 3721058067,
+  "lat": 18.3655651,
+  "lon": 73.7592159,
+  "tags": {
+    "historic": "yes",
+    "name": "Pune Gate",
+    "name:hi": "पुणे दरवाजा",
+    "name:mr": "पुणे दरवाजा",
+    "tourism": "viewpoint"
+  }
+},
+{
+  "type": "node",
+  "id": 10720795078,
+  "lat": 18.3461651,
+  "lon": 73.7763262,
+  "tags": {
+    "name": "Shivatarwadi",
+    "place": "hamlet"
+  }
+},
+{
+  "type": "node",
+  "id": 10720795079,
+  "lat": 18.3411751,
+  "lon": 73.7572396,
+  "tags": {
+    "name": "Bhilwadi",
+    "place": "village"
+  }
+},
+{
+  "type": "node",
+  "id": 10720795082,
+  "lat": 18.3508291,
+  "lon": 73.7540531,
+  "tags": {
+    "name": "Bhilarwadi",
+    "place": "hamlet"
+  }
+},
+{
+  "type": "node",
+  "id": 10720795085,
+  "lat": 18.3611851,
+  "lon": 73.7868833,
+  "tags": {
+    "name": "Awasarewadi",
+    "place": "hamlet"
+  }
+},
+{
+  "type": "node",
+  "id": 11582230674,
+  "lat": 18.3915368,
+  "lon": 73.7403256,
+  "tags": {
+    "name": "Gateshwar Wasti",
+    "place": "hamlet"
+  }
+},
+{
+  "type": "way",
+  "id": 126392859,
+  "center": {
+    "lat": 18.3646594,
+    "lon": 73.7567027
+  },
+  "tags": {
+    "access": "yes",
+    "alt_name": "Sinhagarh Fort",
+    "castle_type": "fortress",
+    "historic": "castle",
+    "name": "Sinhagad Fort",
+    "name:hi": "सिंहगड किला",
+    "name:mr": "सिंहगड किल्ला"
+  }
+},
+{
+  "type": "way",
+  "id": 223277850,
+  "center": {
+    "lat": 18.3554547,
+    "lon": 73.7901633
+  },
+  "tags": {
+    "highway": "primary",
+    "name": "Kondanpur Awasarewadi Road"
+  }
+}
+
+  ]
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "file": "ridge-trail.jpg",
+    "label": "the trail along the ridge",
+    "artist": "Suraj Digrase",
+    "licence": "CC0",
+    "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Sinhagad_Fort_(75834).jpg"
+  },
+  {
+    "file": "sunrise.jpg",
+    "label": "sunrise over the ridges",
+    "artist": "Tanaya Badgandi",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sinhagad_2.jpg"
+  },
+  {
+    "file": "gate.jpg",
+    "label": "a gate in the fort wall",
+    "artist": "Suraj Digrase",
+    "licence": "CC0",
+    "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Sinhagad_Fort_(49146).jpg"
+  },
+  {
+    "file": "fog-edge.jpg",
+    "label": "fog over the cliff edge",
+    "artist": "Suraj Digrase",
+    "licence": "CC0",
+    "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Sinhagad_Fort_(25034).jpg"
+  },
+  {
+    "file": "valley.jpg",
+    "label": "the valley from the top",
+    "artist": "Suraj Digrase",
+    "licence": "CC0",
+    "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Sinhagad_Fort_(64325).jpg"
+  },
+  {
+    "file": "cannon.jpg",
+    "label": "a cannon on the wall",
+    "artist": "Suraj Digrase",
+    "licence": "CC0",
+    "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Sinhagad_Fort_(67008).jpg"
+  }
+]

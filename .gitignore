@@ -1,0 +1,24 @@
+node_modules/
+dist/
+.venv/
+__pycache__/
+*.pyc
+data/
+.DS_Store
+tools/
+
+# Agent notes, kept local (user, 2026-10-06)
+/CLAUDE.md
+/DESIGN_LOG.md
+/docs/
+
+# Secrets and local-only guides
+.env
+/DEPLOYMENT.md
+/myrecord.md
+
+# Test logs, journals and PDFs from npm test / npm run e2e
+/test/
+
+# Demo video build files (frames, voice segments, a Chrome profile)
+/live-demo/build/

@@ -1,0 +1,228 @@
+/* Site chrome: top bar and footer (home and shelf). */
+
+.site-head {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 4.5rem;
+  /* Full-width bar, content aligned to the page column. */
+  padding: 0 max(var(--gutter), calc((100% - var(--page)) / 2 + var(--gutter)));
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-1);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.site-brand img {
+  border-radius: 10px;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.site-nav > a:not(.site-cta) {
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  color: var(--pencil);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+
+.site-nav > a:not(.site-cta):hover,
+.site-nav > a[aria-current="page"] {
+  color: var(--ink);
+  background: var(--mist);
+}
+
+.site-theme {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: none;
+  border-radius: 999px;
+  background: none;
+  color: var(--ink);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.site-theme:hover {
+  background: var(--mist);
+}
+
+.site-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.9rem;
+  margin-left: 0.35rem;
+  padding: 0 1.2rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: var(--shadow);
+  transition: transform 160ms var(--ease), background-color var(--dur) var(--ease);
+}
+
+.site-cta:hover {
+  background: color-mix(in srgb, var(--accent) 88%, var(--ink));
+}
+
+.site-cta:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.site-cta .icon {
+  font-size: 1.15rem;
+}
+
+@media (max-width: 40rem) {
+  .site-nav-wide {
+    display: none;
+  }
+
+  .site-brand span {
+    display: none;
+  }
+
+  .site-cta {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 23rem) {
+  .site-nav > a:not(.site-cta) {
+    display: none;
+  }
+}
+
+/* ---- Footer -------------------------------------------------------------- */
+
+.site-foot {
+  margin-top: 6rem;
+  border-top: 1px solid var(--rule);
+  background: var(--mist);
+}
+
+.site-foot-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 2.5rem 3rem;
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 3.5rem var(--gutter) 2.5rem;
+}
+
+.site-foot-about p {
+  max-width: 30rem;
+  margin-top: 0.6rem;
+  color: var(--pencil);
+  font-size: var(--step--1);
+}
+
+.site-foot-about .site-foot-tag {
+  margin-top: 0.9rem;
+  color: var(--ink);
+  font-size: var(--step-1);
+}
+
+.site-foot-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.site-foot-cols h2 {
+  margin-bottom: 0.75rem;
+  font-size: var(--step-0);
+  letter-spacing: 0;
+}
+
+.site-foot-cols a {
+  display: block;
+  padding: 0.3rem 0;
+  color: var(--pencil);
+  font-size: var(--step--1);
+  text-decoration: none;
+}
+
+.site-foot-cols a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.site-foot-credits {
+  grid-column: 1 / -1;
+  max-width: 48rem;
+  color: var(--pencil);
+  font-size: var(--step--1);
+}
+
+.site-foot-base {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 1.5rem var(--gutter) 2rem;
+  border-top: 1px solid var(--rule);
+}
+
+.site-foot-by {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: var(--step-2);
+}
+
+.site-foot-gh {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2.75rem;
+  padding: 0 1.1rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.site-foot-gh:hover {
+  background: var(--paper);
+}
+
+.site-foot-gh .icon {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 48rem) {
+  .site-foot-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

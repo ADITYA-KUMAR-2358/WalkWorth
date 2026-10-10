@@ -1,0 +1,82 @@
+/* A4 print for WeasyPrint. Always the light set: paper is paper. */
+
+@page {
+  size: A4;
+  margin: 22mm 20mm 24mm 22mm;
+  @bottom-center {
+    content: counter(page);
+    font-family: "Familjen Grotesk Variable", sans-serif;
+    font-size: 8pt;
+    color: #4F5E57;
+  }
+  @top-right {
+    content: string(fort);
+    font-family: "Familjen Grotesk Variable", sans-serif;
+    font-size: 8pt;
+    color: #4F5E57;
+  }
+}
+@page :first {
+  @top-right { content: none; }
+  @bottom-center { content: none; }
+}
+
+:root, :root[data-theme] {
+  --paper: #FFFFFF;
+  --ink: #1E1C19;
+  --monsoon: #3E6A3A;
+  --laterite: #A5472B;
+  --mist: #D9E0DC;
+  --pencil: #6E6A62;
+  --print: #F3EEE2;
+  --rule: #CFCBC2;
+  --contour: #D8D3C8;
+  --strip-hl: #B9C2BD;
+}
+
+html { font-size: 10.5pt; }
+body { background: #FFFFFF; font-size: 1rem; line-height: 1.5; }
+
+.ribbon {
+  display: inline-block;
+  margin: 0 0 4mm;
+  padding: 1mm 3mm;
+  font-size: 7pt;
+}
+
+.book, .journal { display: block; max-width: none; padding: 0; margin: 0; }
+
+.cover { padding-top: 0; }
+.cover h1 { font-size: 46pt; string-set: fort content(); }
+.cover-contours { height: 52mm; inset: -6mm 0 auto; }
+.opener { font-size: 14pt; }
+.route--cover { max-height: 95mm; margin-top: 6mm; }
+.route-draw { stroke-dasharray: none; stroke-dashoffset: 0; animation: none; }
+.route--cover .pin, .route--cover .start { opacity: 1; animation: none; }
+
+.stats { margin-top: 6mm; }
+.stats dd { font-size: 13pt; }
+
+.stats { break-after: page; }
+.chapter { margin-top: 12mm; }
+.chapter h2, .chapter .label, .strip-wrap { break-after: avoid; }
+.chapter h2 { font-size: 26pt; }
+.strip-wrap { height: 14mm; }
+
+.entry { margin-top: 7mm; break-inside: avoid; }
+.quote p { font-size: 17pt; }
+.quote--closing p { font-size: 22pt; }
+.model-line, .translation { font-size: 9.5pt; }
+
+.print {
+  margin: 6mm 0 2mm;
+  transform: none;
+  box-shadow: none;
+  border: 0.4pt solid #DCD6CA;
+  break-inside: avoid;
+}
+.print img { max-height: 95mm; }
+.tape { transform: none; }
+
+.closing { break-before: page; border-top: none; margin-top: 30mm; }
+.colophon { break-before: avoid; margin-top: 18mm; }

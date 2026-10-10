@@ -1,0 +1,36 @@
+# Walkworth configuration. Secrets (API keys) go in .env, never here.
+
+[models]
+# Defaults. LLM_MODEL, LLM_VISION_MODEL and ELEVENLABS_STT_MODEL in .env override them.
+# "gemma-4-26b-a4b-it" is the fast mixture-of-experts model; "gemma-4-31b-it" is the larger dense one.
+llm = "gemma-4-26b-a4b-it"
+vision = "gemma-4-26b-a4b-it"
+stt = "scribe_v2"
+
+[llm]
+# Any OpenAI-compatible endpoint. LLM_BASE_URL in .env overrides it.
+base_url = "https://generativelanguage.googleapis.com/v1beta/openai"
+
+[elevenlabs]
+base_url = "https://api.elevenlabs.io/v1"
+
+[temporal]
+# Local dev server by default. On Render, TEMPORAL_ADDRESS / TEMPORAL_NAMESPACE /
+# TEMPORAL_API_KEY in the environment override these (Temporal Cloud).
+address = "127.0.0.1:7233"
+namespace = "default"
+
+[storage]
+# Relative to the repo root. WALKWORTH_DATA_DIR overrides it.
+data_dir = "data"
+
+[display]
+timezone = "Asia/Kolkata"
+
+[publish]
+# Trim this many metres off each end of the route before anything is published,
+# so a home or hostel location is never exposed.
+trim_ends_m = 300
+# Public URL of the deployed app. Used for image links in the copy-to-DEV
+# Markdown. On Render, RENDER_EXTERNAL_URL fills it in automatically.
+base_url = ""

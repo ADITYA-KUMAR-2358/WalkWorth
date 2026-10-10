@@ -1,0 +1,407 @@
+/* Shared pieces for the working screens (prepare, import, processing,
+   review, export). The shelf and trail mode have their own files. */
+
+.screen {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.25rem var(--gutter) 4rem;
+}
+
+.screen--wide {
+  max-width: 64rem;
+}
+
+/* The working screens' bar: the mark, one way back, the theme toggle. */
+.app-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 3.25rem;
+  margin: 0 -0.5rem;
+}
+
+.app-bar-brand {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 12px;
+}
+
+.app-bar-brand img {
+  display: block;
+  border-radius: 9px;
+}
+
+.app-bar-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.75rem;
+  padding: 0 0.85rem 0 0.7rem;
+  border-radius: 999px;
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--dur) var(--ease);
+}
+
+.app-bar-back:hover {
+  background: var(--mist);
+}
+
+.app-bar-back .icon {
+  font-size: 1.1rem;
+  transition: transform var(--dur) var(--ease);
+}
+
+.app-bar-back:hover .icon {
+  transform: translateX(-2px);
+}
+
+.app-bar-aside {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--pencil);
+  font-size: var(--step--1);
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.app-bar-aside a {
+  color: var(--ink);
+  font-weight: 500;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--rule-strong);
+}
+
+.screen-head {
+  margin-top: 2rem;
+}
+
+.screen-head .eyebrow {
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+.screen-head h1 {
+  margin-top: 0.4rem;
+  font-size: clamp(2.25rem, 1.6rem + 3vw, 3rem);
+  font-variation-settings: "opsz" 72;
+  line-height: 1.08;
+}
+
+.screen-head p.lede {
+  margin-top: 0.75rem;
+  max-width: 34rem;
+  color: var(--pencil);
+}
+
+.section-title {
+  margin-top: 2.75rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--rule-strong);
+  font-size: var(--step-2);
+  font-variation-settings: "opsz" 36;
+}
+
+/* Buttons are full pills; the gold one is the single primary action per screen. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3rem;
+  padding: 0 1.35rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease), transform 120ms var(--ease);
+}
+
+.btn:hover {
+  background: color-mix(in srgb, var(--ink) 6%, transparent);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn[disabled],
+.btn[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  width: 100%;
+  min-height: 3.75rem;
+  padding: 0 1.75rem;
+  border: none;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-1);
+  box-shadow: var(--shadow);
+  font-variation-settings: "opsz" 36;
+}
+
+.btn--primary:hover {
+  background: color-mix(in srgb, var(--accent) 88%, var(--ink));
+}
+
+.btn--primary .icon {
+  font-size: 1.75rem;
+}
+
+.btn--small {
+  min-height: 2.25rem;
+  padding: 0 0.8rem;
+  font-size: var(--step--1);
+}
+
+.link-btn {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--pencil);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+.link-btn:hover {
+  color: var(--ink);
+}
+
+.link-btn--danger {
+  color: var(--danger);
+}
+
+.panel {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.panel .mono {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.notice {
+  margin-top: 1.25rem;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--panel);
+}
+
+.notice p + p {
+  margin-top: 0.35rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+}
+
+.field label {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--pencil);
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--ink) 40%, transparent);
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+
+.textarea {
+  min-height: 6rem;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.input:focus-visible,
+.textarea:focus-visible,
+.select:focus-visible {
+  outline: 2px solid var(--laterite);
+  outline-offset: 1px;
+}
+
+/* Pipeline steps: filled monsoon = done, laterite ring = running, grey ring = waiting. */
+.steps {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 1.6rem minmax(0, 1fr) auto;
+  gap: 0.25rem 1rem;
+  align-items: start;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.step-mark {
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-top: 0.2rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--pencil);
+}
+
+.step--done .step-mark {
+  border-color: var(--monsoon);
+  background: var(--monsoon);
+}
+
+.step--running .step-mark {
+  border: 2px solid var(--accent);
+}
+
+.step--failed .step-mark {
+  border: 2px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.step-name {
+  font-size: var(--step-1);
+  line-height: 1.3;
+}
+
+.step--waiting .step-name {
+  color: var(--pencil);
+}
+
+.step-model,
+.step-count {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--pencil);
+}
+
+.step-count {
+  padding-top: 0.25rem;
+  text-align: right;
+}
+
+.step-bar {
+  grid-column: 2 / -1;
+  height: 4px;
+  margin-top: 0.5rem;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--mist);
+}
+
+.step-bar span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transition: width 400ms var(--ease);
+}
+
+.checklist {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.check {
+  display: grid;
+  grid-template-columns: 1.6rem minmax(0, 1fr) auto;
+  gap: 0.25rem 1rem;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.check .step-mark {
+  margin-top: 0;
+}
+
+.check--ok .step-mark {
+  border-color: var(--monsoon);
+  background: var(--monsoon);
+}
+
+.check-note {
+  grid-column: 2 / -1;
+  font-size: var(--step--1);
+  color: var(--pencil);
+}
+
+/* A file input that stays reachable by keyboard: hidden visually, focus shown
+   on the label that wraps it. */
+.file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+label:has(> .file-input:focus-visible) {
+  outline: 2px solid var(--laterite);
+  outline-offset: 3px;
+}
+
+.notice--quiet {
+  border-left-color: var(--monsoon);
+}
+
+.notice a {
+  color: var(--ink);
+  font-weight: 600;
+  text-underline-offset: 0.2em;
+}
+
+/* A short-lived "are you sure" next to the action it guards. */
+.confirm {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.75rem;
+  font-size: var(--step--1);
+}
+
+.btn--danger {
+  border-color: color-mix(in srgb, var(--danger) 70%, transparent);
+  color: var(--danger);
+}
+
+.btn--danger:hover {
+  background: color-mix(in srgb, var(--danger) 10%, transparent);
+}
+
+/* Shown while a screen loads its data. Nothing loops (DESIGN.md). */
+.loading-line {
+  margin-top: 2rem;
+  color: var(--pencil);
+}

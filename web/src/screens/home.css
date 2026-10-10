@@ -1,0 +1,703 @@
+/* Home. Serene: mist ground, generous space, photos carrying the mood.
+   One accent (sonki gold) on the primary actions and the high-point dot. */
+
+.home main {
+  overflow-x: clip;
+}
+
+.home-section,
+.home-hero {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.home-section {
+  margin-top: 7rem;
+}
+
+.home-section > h2,
+.closing h2,
+.how h2 {
+  font-size: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+  max-width: 22ch;
+}
+
+.home-lede {
+  max-width: 52ch;
+  margin-top: 1rem;
+  color: var(--pencil);
+  font-size: var(--step-1);
+  line-height: 1.5;
+}
+
+/* ---- Buttons ----------------------------------------------------------------- */
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 3.25rem;
+  padding: 0 1.5rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 160ms var(--ease), background-color var(--dur) var(--ease);
+}
+
+.pill .icon {
+  font-size: 1.25rem;
+}
+
+.pill:hover {
+  background: var(--mist);
+}
+
+.pill:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.pill--gold {
+  border-color: transparent;
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: var(--shadow);
+}
+
+.pill--gold:hover {
+  background: color-mix(in srgb, var(--accent) 88%, var(--ink));
+}
+
+/* ---- Hero --------------------------------------------------------------------- */
+
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: 3rem;
+  min-height: min(44rem, calc(100dvh - 4.5rem));
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+.home-hero h1 {
+  max-width: 13ch;
+  font-size: var(--step-display);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+.home-hero-copy > p {
+  max-width: 34ch;
+  margin-top: 1.25rem;
+  color: var(--pencil);
+  font-size: var(--step-1);
+  line-height: 1.45;
+}
+
+.home-prints {
+  margin: 0;
+}
+
+.prints {
+  position: relative;
+  aspect-ratio: 5 / 4.4;
+}
+
+.print {
+  position: absolute;
+  object-fit: cover;
+  border: 7px solid var(--print);
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  background: var(--mist);
+}
+
+.print--back {
+  top: 0;
+  right: 0;
+  width: 66%;
+  height: 54%;
+  transform: rotate(2.5deg);
+}
+
+.print--mid {
+  top: 12%;
+  left: 2%;
+  width: 40%;
+  height: 76%;
+  transform: rotate(-3deg);
+}
+
+.print--front {
+  right: 5%;
+  bottom: 0;
+  width: 42%;
+  height: 66%;
+  transform: rotate(1.5deg);
+}
+
+.home-prints figcaption {
+  margin-top: 0.9rem;
+  color: var(--pencil);
+  font-size: var(--step--1);
+  max-width: 44ch;
+}
+
+/* The one orchestrated moment: the three prints settle into place on load. */
+@media (prefers-reduced-motion: no-preference) {
+  .print {
+    animation: settle 1100ms var(--ease) both;
+  }
+
+  .print--mid {
+    animation-delay: 120ms;
+  }
+
+  .print--front {
+    animation-delay: 240ms;
+  }
+
+  @keyframes settle {
+    from {
+      opacity: 0;
+      translate: 0 1.5rem;
+      scale: 0.96;
+    }
+  }
+}
+
+/* ---- What you said becomes the journal ------------------------------------------- */
+
+.said-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.15fr);
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.said-panel {
+  padding: 1.75rem;
+  border-radius: var(--radius);
+  background: var(--mist);
+}
+
+.said-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  color: var(--monsoon);
+  font-weight: 600;
+}
+
+.said-head .icon {
+  font-size: 1.25rem;
+}
+
+.said-notes {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.said-notes li {
+  display: grid;
+  grid-template-columns: 3.4rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  transition: background-color var(--dur) var(--ease);
+}
+
+.said-time {
+  color: var(--pencil);
+  font-variant-numeric: tabular-nums;
+}
+
+.said-arrow {
+  color: var(--monsoon);
+  font-size: 2rem;
+}
+
+.said-journal {
+  background: var(--print);
+  color: #17201C;
+  box-shadow: var(--shadow);
+}
+
+.said-journal .said-head {
+  color: #2E5B48;
+}
+
+.said-journal h3 {
+  margin: 1.1rem 0 0.6rem;
+  font-size: var(--step-3);
+}
+
+.said-journal blockquote {
+  margin: 0.4rem 0;
+  padding: 0.5rem 0.75rem;
+  border-left: 3px solid #D9A62A;
+  border-radius: 0 8px 8px 0;
+  font-size: var(--step-1);
+  line-height: 1.4;
+  transition: background-color var(--dur) var(--ease);
+}
+
+.said-line {
+  margin-top: 0.9rem;
+  color: #4F5E57;
+  font-size: var(--step--1);
+  line-height: 1.5;
+}
+
+.said-line.said-line {
+  padding: 0.35rem 0.5rem;
+  margin-inline: -0.5rem;
+  border-radius: 8px;
+  transition: background-color var(--dur) var(--ease);
+}
+
+.cite {
+  margin-left: 0.4rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: #DCE4DF;
+  color: #2E5B48;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.said .is-lit {
+  background: color-mix(in srgb, var(--accent) 38%, transparent);
+}
+
+.said-journal .is-lit {
+  background: #F3E3B2;
+}
+
+/* ---- How it works ----------------------------------------------------------------- */
+
+.how {
+  position: relative;
+  margin-top: 8rem;
+  padding: 6rem 0 6.5rem;
+  background: var(--mist);
+  overflow: hidden;
+}
+
+/* Contours sit under the steps, away from the text above them. */
+.how-contours {
+  position: absolute;
+  inset: auto 0 0;
+  height: 42%;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.how-contours .contours {
+  width: 100%;
+  height: 100%;
+}
+
+.how-inner {
+  position: relative;
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem;
+  margin: 3rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.how-num {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-1);
+}
+
+.how-steps h3 {
+  margin-top: 1.1rem;
+  font-size: var(--step-2);
+}
+
+.how-steps p {
+  max-width: 30ch;
+  margin-top: 0.5rem;
+  color: var(--pencil);
+}
+
+/* ---- Features ------------------------------------------------------------------------ */
+
+.bento {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.bento-cell {
+  position: relative;
+  margin: 0;
+  padding: 1.75rem;
+  border-radius: var(--radius);
+  background: var(--mist);
+  overflow: hidden;
+}
+
+.bento-cell h3 {
+  font-size: var(--step-2);
+}
+
+.bento-cell p {
+  margin-top: 0.5rem;
+  color: var(--pencil);
+}
+
+.bento-words {
+  grid-column: span 7;
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 1.75rem;
+  align-items: center;
+  min-height: 24rem;
+  padding: 0;
+}
+
+.bento-words img {
+  width: 100%;
+  height: 100%;
+  min-height: 24rem;
+  object-fit: cover;
+}
+
+.bento-words-body {
+  padding: 1.75rem 1.75rem 1.75rem 0;
+}
+
+.bento-words blockquote {
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent);
+  font-size: var(--step-2);
+  line-height: 1.35;
+}
+
+.bento-words figcaption {
+  position: absolute;
+  left: 0.9rem;
+  bottom: 0.7rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: var(--print);
+  color: #4F5E57;
+  font-size: 0.8rem;
+}
+
+.bento-honest {
+  grid-column: span 5;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.struck {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  background: var(--paper);
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: var(--step-1);
+}
+
+.bento-honest .struck-why {
+  margin: 0.5rem 0 1.5rem;
+  font-size: var(--step--1);
+}
+
+.bento-pocket {
+  grid-column: span 4;
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.bento-pocket p {
+  color: color-mix(in srgb, var(--on-accent) 82%, transparent);
+}
+
+.bento-icon {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.bento-icon .icon {
+  display: block;
+}
+
+.bento-route {
+  grid-column: span 8;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.bento-route-map {
+  padding: 0.5rem;
+  border-radius: 10px;
+  background: var(--paper);
+}
+
+.route-map {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---- Photo band ------------------------------------------------------------------------ */
+
+.band {
+  position: relative;
+  max-width: calc(var(--page) + 4rem);
+  min-height: 28rem;
+  margin: 7rem auto 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: grid;
+  align-items: end;
+}
+
+.band img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(11 17 14 / 0.78), rgb(11 17 14 / 0.05) 70%);
+}
+
+.band blockquote {
+  position: relative;
+  z-index: 1;
+  max-width: 24ch;
+  margin: 0;
+  padding: 3rem 3rem 1rem;
+  color: #F6F8F6;
+  font-size: clamp(1.75rem, 1.2rem + 2.4vw, 3rem);
+  line-height: 1.2;
+}
+
+.band figcaption {
+  position: relative;
+  z-index: 1;
+  padding: 0 3rem 1.75rem;
+  color: #DCE4DF;
+  font-size: var(--step--1);
+}
+
+/* ---- Sample --------------------------------------------------------------------------- */
+
+.sample {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  border-radius: var(--radius);
+  background: var(--mist);
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+  transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.sample:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.sample img {
+  width: 100%;
+  height: 100%;
+  min-height: 22rem;
+  object-fit: cover;
+}
+
+.sample-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 2.5rem;
+}
+
+.sample-body h2 {
+  font-size: var(--step-5);
+}
+
+.sample-body h2 span {
+  margin-left: 0.4rem;
+  color: var(--pencil);
+  font-size: 0.7em;
+  font-weight: 400;
+}
+
+.sample-body p {
+  max-width: 40ch;
+  color: var(--pencil);
+}
+
+.sample-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 2rem;
+  margin: 0.5rem 0;
+}
+
+.sample-stats dt {
+  color: var(--pencil);
+  font-size: var(--step--1);
+}
+
+.sample-stats dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 600;
+}
+
+.sample-credit {
+  margin-top: 0.75rem;
+  color: var(--pencil);
+  font-size: var(--step--1);
+}
+
+/* ---- Closing --------------------------------------------------------------------------- */
+
+.closing {
+  max-width: 40rem;
+  margin: 8rem auto 0;
+  padding: 0 var(--gutter);
+  text-align: center;
+}
+
+.closing h2 {
+  margin-inline: auto;
+}
+
+.closing p {
+  margin-top: 1rem;
+  color: var(--pencil);
+  font-size: var(--step-1);
+}
+
+.closing .home-actions {
+  justify-content: center;
+}
+
+/* ---- Small screens ------------------------------------------------------------------------ */
+
+@media (max-width: 62rem) {
+  .home-hero {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    gap: 2.5rem;
+  }
+
+  .said-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .said-arrow {
+    justify-self: center;
+    rotate: 90deg;
+  }
+
+  .how-steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .bento-words,
+  .bento-honest,
+  .bento-pocket,
+  .bento-route {
+    grid-column: 1 / -1;
+  }
+
+  .sample {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 40rem) {
+  .home-section {
+    margin-top: 5rem;
+  }
+
+  .bento-words,
+  .bento-route {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bento-words img {
+    min-height: 16rem;
+    max-height: 18rem;
+  }
+
+  .bento-words-body {
+    padding: 0 1.5rem 1.75rem;
+  }
+
+  .band blockquote {
+    padding: 2rem 1.5rem 0.75rem;
+  }
+
+  .band figcaption {
+    padding: 0 1.5rem 1.25rem;
+  }
+
+  .sample-body {
+    padding: 1.75rem;
+  }
+
+  .pill {
+    white-space: normal;
+  }
+}

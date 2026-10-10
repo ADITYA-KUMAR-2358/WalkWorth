@@ -1,0 +1,228 @@
+/* The shelf: your journals as calm rows under the shared site header. */
+
+.shelf-page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.shelf-main {
+  flex: 1;
+  width: 100%;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2rem var(--gutter) 0;
+}
+
+.shelf-main h1 {
+  font-size: clamp(2.25rem, 1.6rem + 3vw, 3.25rem);
+  font-weight: 700;
+}
+
+.shelf-sub {
+  margin-top: 0.6rem;
+  color: var(--pencil);
+  font-size: var(--step-1);
+}
+
+.spines {
+  display: grid;
+  gap: 0.9rem;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.spine {
+  display: grid;
+  grid-template-columns: 4.25rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  background: var(--mist);
+  color: inherit;
+  text-decoration: none;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+a.spine:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.route-thumb {
+  width: 4.25rem;
+  height: 4.25rem;
+  padding: 0.35rem;
+  border-radius: 10px;
+  background: var(--paper);
+}
+
+.route-thumb--none {
+  display: grid;
+  place-items: center;
+  color: var(--pencil);
+  font-size: 1.6rem;
+}
+
+.spine-text {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.spine-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.7rem;
+}
+
+.spine-name {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.spine-mr {
+  color: var(--pencil);
+  font-size: var(--step-1);
+}
+
+.spine-meta {
+  color: var(--pencil);
+}
+
+.spine-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.3rem;
+}
+
+.chip {
+  display: inline-block;
+  padding: 0.1rem 0.7rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.chip--quiet {
+  background: var(--paper);
+  color: var(--pencil);
+  font-weight: 500;
+}
+
+.spine--next {
+  border: 1.5px dashed var(--rule-strong);
+  background: transparent;
+}
+
+.next-box {
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.next-text {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 600;
+}
+
+.spine--loading .bar {
+  display: block;
+  height: 0.85rem;
+  width: 60%;
+  border-radius: 999px;
+  background: var(--paper);
+}
+
+.spine--loading .bar--title {
+  height: 1.4rem;
+  width: 40%;
+  margin-bottom: 0.4rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .spine--loading .next-box,
+  .spine--loading .bar {
+    animation: shimmer 1.6s ease-in-out infinite alternate;
+  }
+
+  @keyframes shimmer {
+    from {
+      opacity: 0.5;
+    }
+  }
+}
+
+.shelf-error {
+  margin-top: 2.5rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--mist);
+}
+
+.shelf-error p + p {
+  margin-top: 0.4rem;
+}
+
+.shelf-error code {
+  font-size: 0.95em;
+}
+
+/* Your own walks can be deleted; the sample and other people's can't. */
+.spine-item {
+  position: relative;
+}
+
+.spine-item--own .spine {
+  padding-right: 3.75rem;
+}
+
+.spine-delete {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: none;
+  border-radius: 999px;
+  background: none;
+  color: var(--pencil);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+
+.spine-delete:hover {
+  background: var(--paper);
+  color: var(--danger);
+}
+
+.spine-confirm {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+  padding: 0.9rem 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--danger) 45%, transparent);
+  border-radius: var(--radius);
+}
+
+.shelf-note {
+  margin-top: 1.5rem;
+  color: var(--pencil);
+  font-size: var(--step--1);
+}

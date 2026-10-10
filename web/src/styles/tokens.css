@@ -1,0 +1,91 @@
+/*
+  Walkworth tokens: Sinhagad after the rain.
+  Cool monsoon mist, basalt ink, moss, and one accent: sonki gold, the small
+  yellow flower that covers the Sahyadri slopes after the monsoon.
+  Contrast (WCAG) is noted where it matters; checked in both themes.
+*/
+
+:root {
+  color-scheme: light;
+
+  --paper: #ECF0ED;        /* monsoon mist */
+  --ink: #17201C;          /* basalt, 14.5:1 on paper */
+  --pencil: #4F5E57;       /* 5.9:1 on paper, 5.3:1 on mist */
+  --mist: #DCE4DF;         /* raised panels */
+  --monsoon: #2E5B48;      /* moss: links, done states. 6.8:1 on paper */
+  --accent: #D9A62A;       /* sonki gold: fills only, never text on paper */
+  --on-accent: #17201C;    /* 7.5:1 on gold */
+  --accent-text: #7A5810;  /* gold's text form: 5.7:1 on paper */
+  --danger: #A3362A;       /* deletes and failures only: 5.9:1 on paper, 5.2:1 on mist */
+  --basalt: #17201C;
+
+  --print: #F6F8F6;        /* photo frames, light in both themes */
+  --rule: color-mix(in srgb, var(--ink) 16%, transparent);
+  --rule-strong: color-mix(in srgb, var(--ink) 70%, transparent);
+  --contour: color-mix(in srgb, var(--monsoon) 22%, transparent);
+  --panel: var(--mist);
+  --shadow: 0 1px 2px color-mix(in srgb, var(--monsoon) 10%, transparent),
+    0 12px 32px -12px color-mix(in srgb, var(--monsoon) 28%, transparent);
+
+  /* Older names, kept so every screen picks up the new palette. */
+  --laterite: var(--accent-text);
+  --on-laterite: var(--on-accent);
+
+  /* Type: one grotesk for everything, a book serif only for the walker's words. */
+  --font-display: "Familjen Grotesk Variable", "Familjen Grotesk", system-ui, sans-serif;
+  --font-body: "Familjen Grotesk Variable", "Familjen Grotesk", system-ui, sans-serif;
+  --font-quote: "Source Serif 4 Variable", "Source Serif 4", Georgia, serif;
+  --font-mono: var(--font-body);
+  --font-mr: "Tiro Devanagari Marathi", "Noto Serif Devanagari", serif;
+
+  /* Scale: 14 · 17 · 20 · 24 · 30 · 38 · 48 · 64 */
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: 1.5rem;
+  --step-3: 1.875rem;
+  --step-4: 2.375rem;
+  --step-5: 3rem;
+  --step-display: clamp(2.6rem, 1.6rem + 4.2vw, 4.25rem);
+
+  --radius: 14px;          /* panels and photos; buttons are full pills */
+  --measure: 62ch;
+  --gutter: 1.5rem;
+  --page: 74rem;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur: 280ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #101714;      /* basalt dusk */
+    --ink: #E3EBE6;        /* 15.0:1 */
+    --pencil: #9DB0A6;     /* 8.0:1 on paper, 7.0:1 on mist */
+    --mist: #1A2420;
+    --monsoon: #8CC2A5;    /* 9.0:1 */
+    --accent: #E2B33C;
+    --on-accent: #101714;
+    --accent-text: #E2B33C; /* 9.3:1 */
+    --danger: #F2917F;     /* 7.9:1 on paper, 6.9:1 on mist */
+    --basalt: #0B110E;
+    --contour: color-mix(in srgb, var(--monsoon) 14%, transparent);
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 16px 40px -16px rgb(0 0 0 / 0.6);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #101714;
+  --ink: #E3EBE6;
+  --pencil: #9DB0A6;
+  --mist: #1A2420;
+  --monsoon: #8CC2A5;
+  --accent: #E2B33C;
+  --on-accent: #101714;
+  --accent-text: #E2B33C;
+  --danger: #F2917F;
+  --basalt: #0B110E;
+  --contour: color-mix(in srgb, var(--monsoon) 14%, transparent);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 16px 40px -16px rgb(0 0 0 / 0.6);
+}

@@ -1,0 +1,154 @@
+{#- One template for every journal: mode is "app" (inside Walkworth),
+    "export" (the static folder / Render site) or "print" (WeasyPrint PDF). -#}
+<!doctype html>
+<html lang="en" data-mode="{{ mode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ j.title }}, {{ j.date_label }} · Walkworth</title>
+  <meta name="description" content="A trek journal from {{ j.title }}, written from voice notes recorded on the trail.">
+  <meta name="generator" content="Walkworth">
+  {%- if mode == "app" %}
+  <link rel="icon" href="/icon-192.png">
+  {%- endif %}
+  <style>{{ fonts_css|safe }}
+{{ css|safe }}</style>
+  {%- if mode == "print" %}
+  <style>{{ print_css|safe }}</style>
+  {%- else %}
+  <script>try{var t=localStorage.getItem("ww-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+  {%- endif %}
+</head>
+<body>
+{%- if j.is_sample %}
+<p class="ribbon">Sample data. The voice notes are invented, and the photos are other people's, credited under each print.</p>
+{%- endif %}
+{%- if mode == "app" %}
+<nav class="appbar" aria-label="Journal">
+  <a class="appbar-home" href="/#/shelf"><img src="/icon-192.png" alt="" width="28" height="28"><span>Your shelf</span></a>
+  <span class="appbar-links">
+    <a class="appbar-pill" href="/#/review/{{ j.trek.id }}">Review</a>
+    <a class="appbar-pill" href="/#/export/{{ j.trek.id }}">Export</a>
+    <button class="theme-toggle" type="button" title="Switch between light and dark"><span class="tt-dark">Dark</span><span class="tt-light">Light</span></button>
+  </span>
+</nav>
+{%- endif %}
+
+<div class="book">
+  {%- if j.route_d and mode != "print" %}
+  <aside class="margin" aria-hidden="true">
+    <div class="margin-inner">
+      <svg class="route route--margin" viewBox="{{ j.route_viewbox }}">
+        <path class="route-ghost" d="{{ j.route_d }}"/>
+        <path class="route-line route-progress" d="{{ j.route_d }}" pathLength="1"/>
+        {%- for p in j.pins %}
+        <circle class="pin pin--{{ p.kind }}" data-pin="{{ p.id }}" cx="{{ '%.1f'|format(p.x) }}" cy="{{ '%.1f'|format(p.y) }}" r="6"/>
+        {%- endfor %}
+        {%- if j.start_xy %}<circle class="start" cx="{{ '%.1f'|format(j.start_xy[0]) }}" cy="{{ '%.1f'|format(j.start_xy[1]) }}" r="5"/>{% endif %}
+      </svg>
+      {%- if j.aside_strip %}
+      <div class="strip-wrap strip-wrap--margin">{{ j.aside_strip|safe }}<span class="strip-dot" hidden></span></div>
+      {%- endif %}
+      <p class="margin-title">{{ j.title }}{% if j.title_mr %} <span lang="mr">{{ j.title_mr }}</span>{% endif %}</p>
+    </div>
+  </aside>
+  {%- endif %}
+
+  <main class="journal">
+    <header class="cover">
+      {%- if j.contours %}<div class="cover-contours">{{ j.contours|safe }}</div>{% endif %}
+      <div class="cover-meta">
+        <p class="mono label">{{ j.date_label }}</p>
+        {%- if j.title_mr %}<p class="cover-mr" lang="mr">{{ j.title_mr }}</p>{% endif %}
+      </div>
+      <h1>{{ j.title }}</h1>
+      {%- if j.opener %}
+      <p class="opener">{% for line in j.opener %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
+      {%- endif %}
+      {%- if j.route_d %}
+      <svg class="route route--cover" viewBox="{{ j.route_viewbox }}" role="img" aria-label="The route{% if j.route_approx %}, approximate{% endif %}">
+        <path class="route-line route-draw" d="{{ j.route_d }}" pathLength="1"/>
+        {%- for p in j.pins %}
+        <circle class="pin pin--{{ p.kind }}" cx="{{ '%.1f'|format(p.x) }}" cy="{{ '%.1f'|format(p.y) }}" r="5"/>
+        {%- endfor %}
+        {%- if j.start_xy %}<circle class="start" cx="{{ '%.1f'|format(j.start_xy[0]) }}" cy="{{ '%.1f'|format(j.start_xy[1]) }}" r="5"/>{% endif %}
+      </svg>
+      {%- endif %}
+    </header>
+
+    <dl class="stats">
+      {%- for value, label in j.stats %}
+      <div><dt class="mono">{{ label }}</dt><dd>{{ value }}</dd></div>
+      {%- endfor %}
+    </dl>
+
+    {%- if not j.has_content %}
+    <p class="empty">Nothing to show yet. Import your walk, then make the journal.</p>
+    {%- endif %}
+
+    {%- for ch in j.chapters %}
+    <section class="chapter" aria-labelledby="ch-{{ ch.key }}">
+      <p class="mono label">{{ ch.label }}</p>
+      <h2 id="ch-{{ ch.key }}">{{ ch.title }}</h2>
+      {%- if ch.strip %}<div class="strip-wrap">{{ ch.strip|safe }}{% set first = ch.entries|selectattr("strip_pct")|first %}{% if first %}<span class="strip-dot" style="left: {{ first.strip_pct[0] }}%; top: {{ first.strip_pct[1] }}%"></span>{% endif %}</div>{% endif %}
+      {%- for e in ch.entries %}
+      <article class="entry" data-entry="{{ e.id }}" data-frac="{{ e.route_frac }}"{% if e.strip_pct %} data-sx="{{ e.strip_pct[0] }}" data-sy="{{ e.strip_pct[1] }}"{% endif %}>
+        <p class="stamp mono">{{ e.time }}{% if e.alt %} · {{ e.alt }}{% endif %}
+          {%- if e.chip %} <span class="chip chip--{{ e.chip_kind }}">{{ e.chip }}</span>{% if e.chip_mr %} <span class="chip-mr" lang="mr">{{ e.chip_mr }}</span>{% endif %}{% endif %}</p>
+        {%- if e.quote %}
+        <blockquote class="quote"><p>“{{ e.quote }}”</p></blockquote>
+        {%- endif %}
+        {%- if e.full_note %}
+        <p class="full-note">The whole note: “{{ e.full_note }}”</p>
+        {%- endif %}
+        {%- if e.translation %}
+        <p class="translation">In {{ e.lang_name }}. Gemma's translation: {{ e.translation }}</p>
+        {%- endif %}
+        {%- if e.after_line %}
+        <p class="model-line">{{ e.after_line }}</p>
+        {%- endif %}
+        {%- for p in e.photos %}
+        <figure class="print" style="--r: {{ p.rotate }}deg">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="{{ p.src }}" alt="{{ p.caption or 'A photo from the walk' }}" loading="lazy">
+          <figcaption>
+            <span class="mono">{{ p.stamp }}{% if p.caption %} · {{ p.caption }}{% endif %}</span>
+            {%- if p.credit %}<span class="credit">Photo: {{ p.credit }}</span>{% endif %}
+          </figcaption>
+        </figure>
+        {%- endfor %}
+      </article>
+      {%- endfor %}
+    </section>
+    {%- endfor %}
+
+    {%- if j.closing %}
+    <section class="closing" aria-label="The last voice note">
+      <article class="entry" data-entry="{{ j.closing.id }}" data-frac="{{ j.closing.route_frac }}"{% if j.closing.strip_pct %} data-sx="{{ j.closing.strip_pct[0] }}" data-sy="{{ j.closing.strip_pct[1] }}"{% endif %}>
+        <p class="stamp mono">{{ j.closing.time }}{% if j.closing.alt %} · {{ j.closing.alt }}{% endif %}</p>
+        <blockquote class="quote quote--closing"><p>“{{ j.closing.quote }}”</p></blockquote>
+        {%- if j.closing.translation %}<p class="translation">In {{ j.closing.lang_name }}. Gemma's translation: {{ j.closing.translation }}</p>{% endif %}
+      </article>
+    </section>
+    {%- endif %}
+
+    <footer class="colophon">
+      <p class="colophon-mark">Walkworth</p>
+      <p class="colophon-tag">Walk it. Say it. Keep it.</p>
+      <ul class="mono">
+        {%- for line in j.colophon %}<li>{{ line }}</li>{% endfor %}
+      </ul>
+      {%- if j.credits %}
+      <ul class="credits">
+        {%- for c in j.credits %}<li>{{ c }}</li>{% endfor %}
+      </ul>
+      {%- endif %}
+      <p class="colophon-note">Quotes in large type are the walker's own words. The small lines around them were written by Gemma, and each one cites a voice note, a photo or the GPS track. A line that cites nothing is dropped before the journal is made.</p>
+    </footer>
+  </main>
+</div>
+{%- if mode != "print" %}
+<script>{{ js|safe }}</script>
+{%- endif %}
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "walkworth",
+  "private": true,
+  "description": "A spoken trek journal. Walk it. Say it. Keep it.",
+  "scripts": {
+    "setup": "npm --prefix web install && uv sync --project backend && npm run fortpack && npm run fixtures && npm run types",
+    "dev": "node scripts/dev.mjs",
+    "worker": "uv run --project backend python -m walkworth.worker",
+    "pipeline-check": "uv run --project backend python -m walkworth.pipeline_check",
+    "types": "uv run --project backend python scripts/gen_types.py",
+    "fortpack": "uv run --project backend python scripts/build_fortpack.py",
+    "fixtures": "uv run --project backend python scripts/make_sample_fixture.py && uv run --project backend python -m walkworth.fixtures",
+    "typecheck": "npm --prefix web run typecheck",
+    "build": "npm --prefix web run build",
+    "test": "node scripts/test.mjs",
+    "e2e": "uv run --project backend python scripts/e2e.py"
+  }
+}

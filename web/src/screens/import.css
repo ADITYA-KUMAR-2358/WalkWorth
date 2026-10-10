@@ -1,0 +1,143 @@
+.import-meta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0 1.25rem;
+}
+
+@media (min-width: 40rem) {
+  .import-meta {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  }
+}
+
+.drop {
+  margin-top: 2rem;
+  min-height: 11rem;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.4rem;
+  padding: 1.5rem;
+  border: 1.5px dashed var(--pencil);
+  border-radius: var(--radius);
+  text-align: center;
+  cursor: pointer;
+  transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.drop:hover,
+.drop.is-over {
+  border-color: var(--laterite);
+  background: color-mix(in srgb, var(--laterite) 6%, transparent);
+}
+
+.drop:focus-within {
+  outline: 2px solid var(--laterite);
+  outline-offset: 3px;
+}
+
+.drop .icon {
+  font-size: 2rem;
+  color: var(--monsoon);
+}
+
+.drop-title {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-variation-settings: "opsz" 48;
+}
+
+.landed {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+}
+
+.landed-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.1rem 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.landed-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.landed-detail {
+  grid-column: 1 / -1;
+}
+
+.landed-row--bad .landed-detail,
+.landed-row--bad > .mono {
+  color: var(--laterite);
+}
+
+.preview-wrap {
+  margin-top: 1.25rem;
+  background: var(--panel);
+}
+
+.import-preview {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.import-preview-empty {
+  padding: 2.5rem 1.25rem;
+  text-align: center;
+}
+
+.pv-route {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.pv-note {
+  fill: var(--laterite);
+  stroke: var(--paper);
+  stroke-width: 2;
+}
+
+.pv-photo {
+  fill: var(--monsoon);
+  stroke: var(--paper);
+  stroke-width: 2;
+}
+
+.offset {
+  margin-top: 1rem;
+}
+
+.offset input[type="range"] {
+  width: 100%;
+  accent-color: var(--laterite);
+}
+
+.preview-key {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.key-note,
+.key-photo {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-left: 0.6rem;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.key-photo {
+  background: var(--monsoon);
+  border-radius: 0;
+}
